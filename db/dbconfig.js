@@ -4,7 +4,7 @@ const dotenv = require('dotenv');
 dotenv.config();
 const connectDB = async () => {
   try {
-    await mongoose.connect('mongodb://127.0.0.1:27017/productsDB');
+    await mongoose.connect(process.env.MONGO_URI);
     console.log('MongoDB connected');
   } catch (err) {
     console.error(err.message);
@@ -12,4 +12,4 @@ const connectDB = async () => {
   }
 };
 
-module.exports = connectDB;
+module.exports = connectDB;
